@@ -6,7 +6,7 @@ return [
     'nombre' => 'c-sae',
     'charset' => 'utf-8',
     'modoProduccion' => false,
-    
+    'tema' => 'gentelella',
     'apacheRewrite' => true,
     'importar' => [
         '!aplicacion.modelos',
@@ -14,6 +14,7 @@ return [
     ],
     'modulos' => [
         /* Comenta el generador de código al entrar en modo producción
+        */
         'codegen' => [
             'ruta' => '!web.modulos.codegen',
             'clase' => 'codeGen',
@@ -21,15 +22,14 @@ return [
             'usuario' => 'admin',
             'clave' => 'admin',
         ],
-        */
     ],
     'componentes' => [
         'bd' => [
             'driver' => 'mysql',
             'servidor' => '127.0.0.1',
             'usuario' => 'root',
-            'clave' => '',
-            'bd' => 'test',
+            'clave' => 'jko123',
+            'bd' => 'csea',
             'prefijo' => 'tbl_',
             'charset' => 'utf8',
             'procedimientos' => false,
