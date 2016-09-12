@@ -10,13 +10,22 @@
         ]
     ];
 ?>
-<a href="<?= Sis::UrlBase() . Sis::apl()->controlador->ID . '/crear' ?>" class="btn btn-primary">
-    Registrar
-</a>
+
 <?= $this->complemento('!siscoms.bootstrap3.CBGrid', [
     'modelo' => 'Empleado',
-    # id, nombres, apellidos, cedula, cargo_id, direccion, profesion_id, salario, nivel_id
-    'columnas' => 'nombres, apellidos, cedula',
-    'opciones' => true,
+    # id, nombres, apellidos, cedula, cargo_id, direccion, profesion_id, salario
+//    'columnas' => 'id, nombres, apellidos, cedula',
+    'columnas' => [
+        'nombres',
+        'apellidos', 
+        'cedula', 
+        'profesion_id' => 'Profesion->nombre', 
+        'cargo_id' => 'Cargo->nombre',
+    ],
+    'opciones' => [
+        ['i' => 'eye', 'url' => 'empleado/ver&{id:pk}'],
+        ['i' => 'pencil', 'url' => 'empleado/ver&{id:pk}'],
+        ['i' => 'plus', 'url' => 'incapacidad/agregar&{id:pk}'],
+    ],
     'paginacion' => 10,
 ]) ?>

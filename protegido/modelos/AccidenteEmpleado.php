@@ -8,8 +8,6 @@
  * @property int $empleado_id
  * 
  * Relaciones del modelo
- * @property FkEmpleadoAccidente $fkEmpleadoAccidente
- * @property FkExaAccidente $fkExaAccidente
  */
  class AccidenteEmpleado extends CModelo{
  
@@ -27,10 +25,10 @@
      */
     public function atributos() {
         return [
-            'id' => ['pk'] ,
-                'accidente_id',
-                'empleado_id',
-            ];
+		'id' => ['pk'] , 
+		'accidente_id', 
+		'empleado_id', 
+        ];
     }
     
     /**

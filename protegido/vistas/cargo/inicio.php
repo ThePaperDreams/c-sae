@@ -11,10 +11,6 @@
     ];
 ?>
 
-<a href="<?= Sis::UrlBase() . Sis::apl()->controlador->ID . '/crear' ?>" class="btn btn-primary">
-    Registrar
-</a>
-
 <?= $this->complemento('!siscoms.bootstrap3.CBGrid', [
     'modelo' => 'Cargo',
     # id, nombre, descripcion, nivel_id

@@ -1,8 +1,11 @@
 <?php
 # Se importan las librerias base js y css
 Sis::Recursos()->JQuery(); 
+Sis::Recursos()->Select2();
 Sis::Recursos()->Bootstrap3();
 Sis::Recursos()->AwesomeFont();
+Sis::Recursos()->JQueryUI();
+Sis::Recursos()->css("estilos");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -16,9 +19,11 @@ Sis::Recursos()->AwesomeFont();
             'elementos' => [
                 ['texto' => 'Inicio', 'url' => ['principal/inicio']],
                 ['texto' => 'Configuración', 'elementos' => [
+                    ['texto' => 'Niveles', 'url' => ['nivel/inicio']],
                     ['texto' => 'Cargos', 'url' => ['cargo/inicio']],
                     ['texto' => 'Profesiones', 'url' => ['profesion/inicio']],
-                    ['texto' => 'Niveles', 'url' => ['nivel/inicio']],
+                    ['texto' => 'Enfermedades', 'url' => ['enfermedad/inicio']],
+                    ['texto' => 'Accidentes', 'url' => ['accidente/inicio']],
                 ]],
                 ['texto' => 'Empleados', 'url' => ['empleado/inicio']],
                 [
@@ -62,5 +67,14 @@ Sis::Recursos()->AwesomeFont();
             </div>
             <?php endif ?>
         </div>
+        <script>
+            $(function(){
+                $("[data-s2]").select2({
+                    width: "100%",
+                });
+                
+                $("[data-date]").datepicker({ dateFormat : 'yy-mm-dd' });
+            });
+        </script>
     </body>
 </html>

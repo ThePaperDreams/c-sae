@@ -8,8 +8,6 @@
  * @property int $empleado_id
  * 
  * Relaciones del modelo
- * @property FkEmpleadoEnfermedad $fkEmpleadoEnfermedad
- * @property FkEnfermedad $fkEnfermedad
  */
  class EnfermedadEmpleado extends CModelo{
  
@@ -27,10 +25,10 @@
      */
     public function atributos() {
         return [
-            'id' => ['pk'] ,
-                'enfermedad_id',
-                'empleado_id',
-            ];
+		'id' => ['pk'] , 
+		'enfermedad_id', 
+		'empleado_id', 
+        ];
     }
     
     /**

@@ -11,9 +11,10 @@
  * @property string $direccion
  * @property int $profesion_id
  * @property double $salario
- * @property int $nivel_id
  * 
  * Relaciones del modelo
+ * @property Cargo $Cargo
+ * @property Profesion $Profesion
  */
  class Empleado extends CModelo{
  
@@ -39,7 +40,6 @@
 		'direccion', 
 		'profesion_id', 
 		'salario', 
-		'nivel_id', 
         ];
     }
     
@@ -51,9 +51,8 @@
         return [
             # el formato es simple: 
             # tipo de relación | modelo con que se relaciona | campo clave foranea
-            	'fkNivelEmleado' => [self::PERTENECE_A, 'FkNivelEmleado', 'nivel_id'],
-	'fkCargoEmpleados' => [self::PERTENECE_A, 'FkCargoEmpleados', 'cargo_id'],
-	'fkProfesionEmpleado' => [self::PERTENECE_A, 'FkProfesionEmpleado', 'profesion_id'],
+            'Cargo' => [self::PERTENECE_A, 'Cargo', 'cargo_id'],
+            'Profesion' => [self::PERTENECE_A, 'Profesion', 'profesion_id'],
         ];
     }
     
@@ -71,8 +70,15 @@
 		'direccion' => 'Direccion', 
 		'profesion_id' => 'Profesion Id', 
 		'salario' => 'Salario', 
-		'nivel_id' => 'Nivel Id', 
         ];
+    }
+    
+    public function getNombreDePila(){
+        return $this->nombres . ' ' . $this->apellidos;
+    }
+    
+    public function getNivelRiesgo(){
+        return $this->Cargo->Nivel->nivel;
     }
     
     /**

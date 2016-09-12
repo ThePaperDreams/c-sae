@@ -27,7 +27,15 @@ class CtrlEnfermedad extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('crear', ['modelo' => $modelo]);
+        $this->mostrarVista('crear', $this->getOpcoines($modelo));
+    }
+    
+    public function getOpcoines(&$modelo){
+        $grupos = Grupo::modelo()->listar();
+        return [
+            'modelo' => $modelo,
+            'grupos' => CHtml::modeloLista($grupos, "id", "nombre"),
+        ];
     }
     
     /**
@@ -43,7 +51,7 @@ class CtrlEnfermedad extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('editar', ['modelo' => $modelo]);
+        $this->mostrarVista('editar', $this->getOpcoines($modelo));
     }
     
     /**

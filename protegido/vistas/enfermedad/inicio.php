@@ -13,8 +13,8 @@
 
 <?= $this->complemento('!siscoms.bootstrap3.CBGrid', [
     'modelo' => 'Enfermedad',
-    # id, nombre, descripcion
-    'columnas' => 'id, nombre, descripcion',
+    # id, nombre, descripcion, gurpo_id
+    'columnas' => 'id, nombre, descripcion, gurpo_id',
     'opciones' => true,
     'paginacion' => 10,
 ]) ?>

@@ -6,7 +6,7 @@ return [
     'nombre' => 'c-sae',
     'charset' => 'utf-8',
     'modoProduccion' => false,
-    'tema' => 'gentelella',
+//    'tema' => 'gentelella',
     'apacheRewrite' => true,
     'importar' => [
         '!aplicacion.modelos',

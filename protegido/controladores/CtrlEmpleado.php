@@ -27,7 +27,7 @@ class CtrlEmpleado extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('crear', ['modelo' => $modelo]);
+        $this->mostrarVista('crear', $this->getOpciones($modelo));
     }
     
     /**
@@ -43,9 +43,18 @@ class CtrlEmpleado extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('editar', ['modelo' => $modelo]);
+        $this->mostrarVista('editar', $this->getOpciones($modelo));
     }
     
+    public function getOpciones(&$modelo){
+        $profesiones = Profesion::modelo()->listar();
+        $cargos = Cargo::modelo()->listar();
+        return [
+            'modelo' => $modelo,
+            'profesiones' => CHtml::modeloLista($profesiones, "id", "nombre"),
+            'cargos' => CHtml::modeloLista($cargos, "id", "nombre"),
+        ];
+    }
     /**
      * Esta función permite ver detalladamente un registro existente
      * @param int $pk

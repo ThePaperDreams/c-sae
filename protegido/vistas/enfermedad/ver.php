@@ -32,6 +32,10 @@
                     <th><?php echo $modelo->obtenerEtiqueta('descripcion') ?></th>
                     <td><?php echo $modelo->descripcion; ?></td>
                 </tr>
+                                <tr>
+                    <th><?php echo $modelo->obtenerEtiqueta('gurpo_id') ?></th>
+                    <td><?php echo $modelo->gurpo_id; ?></td>
+                </tr>
                             </tbody>
         </table>
 

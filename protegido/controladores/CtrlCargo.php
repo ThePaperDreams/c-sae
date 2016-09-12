@@ -27,7 +27,15 @@ class CtrlCargo extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('crear', ['modelo' => $modelo]);
+        $this->mostrarVista('crear', $this->getOpciones($modelo));
+    }
+    
+    public function getOpciones(&$modelo){
+        $niveles = Nivel::modelo()->listar();
+        return [
+            'modelo' => $modelo,
+            'niveles' => CHtml::modeloLista($niveles, "id", "nivel"),
+        ];
     }
     
     /**
@@ -43,7 +51,7 @@ class CtrlCargo extends CControlador{
                 $this->redireccionar('inicio');
             }
         }
-        $this->mostrarVista('editar', ['modelo' => $modelo]);
+        $this->mostrarVista('editar', $this->getOpciones($modelo));
     }
     
     /**

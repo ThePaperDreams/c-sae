@@ -6,6 +6,7 @@
  * @property int $id
  * @property string $nombre
  * @property string $descripcion
+ * @property int $gurpo_id
  * 
  * Relaciones del modelo
  */
@@ -28,6 +29,7 @@
 		'id' => ['pk'] , 
 		'nombre', 
 		'descripcion', 
+		'gurpo_id', 
         ];
     }
     
@@ -39,7 +41,8 @@
         return [
             # el formato es simple: 
             # tipo de relación | modelo con que se relaciona | campo clave foranea
-                    ];
+            	'fkEnfermedadGrupo' => [self::PERTENECE_A, 'FkEnfermedadGrupo', 'gurpo_id'],
+        ];
     }
     
     /**
@@ -51,6 +54,7 @@
 		'id' => 'Id', 
 		'nombre' => 'Nombre', 
 		'descripcion' => 'Descripcion', 
+		'gurpo_id' => 'Gurpo Id', 
         ];
     }
     
